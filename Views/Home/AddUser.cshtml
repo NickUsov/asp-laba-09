@@ -1,0 +1,53 @@
+﻿@using WebApplication3.Models
+@model WebApplication3.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddUser</title>
+</head>
+<body>
+    @using (Html.BeginForm("AddUser", "Home", FormMethod.Post))
+    {
+        <div class="item">
+            @Html.Label("Id")
+            @Html.TextBoxFor(m => m.Id)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.Surname)
+            @Html.TextBoxFor(m => m.Surname)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.BirthDate)
+            @Html.EditorFor(m => m.BirthDate)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.Address.Line1)
+            @Html.TextBoxFor(m => m.Address.Line1)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.Address.Country)
+            @Html.TextBoxFor(m => m.Address.Country)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.Address.PostalCode)
+            @Html.TextBoxFor(m => m.Address.PostalCode)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.IsMarried)
+            @Html.TextBoxFor(m => m.IsMarried)
+        </div>
+        <div class="item">
+            @Html.LabelFor(m => m.Role)
+            @Html.DropDownListFor(m => m.Role, new SelectList(Enum.GetNames(typeof(Role))))
+        </div>
+        <input type="submit" value="Add" />
+    }
+</body>
+</html>

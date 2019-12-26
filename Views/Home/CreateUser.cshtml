@@ -1,0 +1,22 @@
+﻿@model WebApplication3.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateUser</title>
+</head>
+<body>
+    @using(Html.BeginForm("AddUser", "Home", FormMethod.Post))
+    {
+        <h3>@Html.LabelForModel()</h3>
+
+        Html.EditorForModel();
+    }
+</body>
+</html>
